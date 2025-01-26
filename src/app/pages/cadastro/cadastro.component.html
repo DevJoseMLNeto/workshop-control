@@ -1,0 +1,21 @@
+<app-formularios *ngIf="indexForms"></app-formularios>
+<app-formulario-edicao *ngIf="indexEdit"></app-formulario-edicao>
+
+<main>
+<div class="principal" *ngIf="indexMain">
+    <menu>
+        <div class="busca">
+            <input type="text" name="busca_i" id="busca_i" placeholder="Faça uma busca" (input)="buscaClientes($any($event.target).value)">
+        </div>
+        <button (click)="navegarHome()" class="home">Home</button>
+        <button (click)="abrirForm()" class="add_cliente">Adicionar cliente</button>
+        <button (click)="abrirFormEdit()" class="edit_cliente">Editar cliente</button>
+        <button class="remove_cliente">Remover cliente</button>
+    </menu>
+
+    <div class="clientes">
+        <app-ficha-cadastro-cliente></app-ficha-cadastro-cliente>
+    </div>
+</div>
+</main>
+

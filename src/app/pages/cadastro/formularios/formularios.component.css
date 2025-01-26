@@ -1,0 +1,45 @@
+.box_addclient{
+    padding: 10px;
+    border-radius: 8px;
+    width: 35%;
+    margin: 0 auto;
+    background-color: antiquewhite;
+}
+
+.content{
+    margin-bottom: 30px;
+    font-size: large;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+}
+.content input{
+    outline: none;
+    border: 3px solid black;
+    border-radius: 8px;
+    font-size: large;
+    padding: 2px 5px;
+}
+
+.content textarea{
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.btns{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.btns button{
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+    border-radius: 8px;
+    background-color: blue;
+    color: #fff;
+}

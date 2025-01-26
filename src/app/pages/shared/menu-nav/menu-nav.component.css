@@ -1,0 +1,11 @@
+.nav_bar{
+    width: 100vw;
+    height: 12vh;
+    background-color: transparent;
+    text-align: center;
+    font-size: 1.6em;
+}
+
+h1{
+    padding: 27px;
+}

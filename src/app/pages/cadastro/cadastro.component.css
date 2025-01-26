@@ -1,0 +1,65 @@
+
+
+.principal{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+main{
+    display: flex;
+    margin: 0px auto;
+}
+
+.clientes{
+    width: 79vw;
+}
+
+menu{
+    height: 88vh;
+    width: 17vw;
+}
+
+menu button{
+    cursor: pointer;
+    width: 95%;
+    height: 100px;
+    background-color: transparent;
+    font-size: large;
+    font-weight: 600;
+    transition-duration: 100ms;
+    margin: 7px;
+    border-radius: 8px;
+}
+
+menu button:hover{
+    background-color:  rgb(255, 255, 34);
+    border-right: none;
+}
+.busca{
+    padding: 5px 5px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 95%;
+    margin: auto;
+}
+.busca input{
+    outline: none;
+    width:80% ;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+
+.busca span{
+    cursor: pointer;
+    padding: 5px 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    height: 30px;
+    border-radius: 100%;
+}

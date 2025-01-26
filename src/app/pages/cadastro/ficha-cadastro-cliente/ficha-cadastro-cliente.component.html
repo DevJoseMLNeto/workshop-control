@@ -1,0 +1,26 @@
+<ng-container *ngFor="let c of clientesCadastrados">
+<div class="ficha" [ngClass]="classeFicha">
+    <input type="radio" name="cliente" >
+    <article class="visivel">
+    <div class="info_contact info">
+        <p>Nome: {{c._nome}}</p>
+        <p>Contato {{c._contato}}</p>
+        <p>Endereço: {{c._endereco}}</p>
+    </div>
+    <div class="info_bike info">
+        <p>Bike: {{c._bike}}</p>
+        <p>Serviço: {{c._ultServico}}</p>
+        <p (click)="abrirFicha('fichaAberta')">{{descricao}}</p>
+    </div>
+    </article>
+    <article class="escondido">
+    <div class="descricao">
+        <p>Data: {{c._data}}</p>
+        <p>Retorno: {{c._retorno}}</p>
+        <p>Valor: {{c._valor}}</p>
+        <p>Descrição do serviço: {{c._maisInfo}}</p>
+        <p></p>
+    </div>
+    </article>
+</div>
+</ng-container>
