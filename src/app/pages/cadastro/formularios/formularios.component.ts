@@ -3,7 +3,7 @@ import { OnInit, Input } from '@angular/core';
 import { CadastroComponent } from '../cadastro.component';
 import { CadastroService } from 'src/app/service/cadastro.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { FichaCadastroClienteComponent } from '../ficha-cadastro-cliente/ficha-cadastro-cliente.component';
+import { DadosC } from 'src/app/model/dadosCliente';
 
 @Component({
   selector: 'app-formularios',
@@ -14,7 +14,7 @@ import { FichaCadastroClienteComponent } from '../ficha-cadastro-cliente/ficha-c
 
 
 export class FormulariosComponent {
-  nome:string = ""
+  nome: string = ""
   contato:string = ""
   endereco:string = ""
   bike:string = ""
@@ -27,6 +27,7 @@ export class FormulariosComponent {
 
   constructor(private cadastroComponent: CadastroComponent, private cadastroService:CadastroService){
     
+    
   }
   
 
@@ -36,12 +37,11 @@ fecharForm(){
 
 enviarDados(){
   this.cadastroService.receberDados(this.nome,this.contato,this.endereco,this.bike,this.ultServico,this.data, this.retorno, this.valor, this.maisInfo)
+  this.cadastroService.obterDadosStorage()
+  this.cadastroComponent.setClienteCadastrado( this.cadastroService.clientesCadastrados)
   this.cadastroComponent.fecharForm()
 }
 
-editarAtivo(){
-    console.log("Senhor Jesus")
 
-}
 
 }

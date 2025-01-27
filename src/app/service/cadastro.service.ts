@@ -9,6 +9,7 @@ import { DadosC } from '../model/dadosCliente';
 export class CadastroService{
   dadosC = new DadosC()
   clientesCadastrados : any[] = []
+  clientesEditaveis?: string;
 
   constructor(){
   }
@@ -27,14 +28,32 @@ export class CadastroService{
     this.dadosC.setId()
     this.enviarDados(this.dadosC, this.dadosC.Id)
   }
+  receberDadosEditaveis(dados: DadosC, id: string){
+    this.dadosC._Nome = dados._nome
+    this.dadosC._Contato = dados._contato
+    this.dadosC._Endereco = dados._endereco
+    this.dadosC._Bike = dados._bike
+    this.dadosC._UltServico = dados._ultServico
+    this.dadosC._Data = dados._data
+    this.dadosC._Retorno = dados._retorno
+    this.dadosC._MaisInfo = dados._maisInfo
+    this.dadosC._valor = dados._valor
+    this.dadosC._Id = dados._id
+    this.enviarDadosEditaveis(this.dadosC, id)
+  }
 
   enviarDados(dados: DadosC, id: string){
     let dadosConvertidos = JSON.stringify(dados)
     window.localStorage.setItem(id, dadosConvertidos)
   
   }
+  enviarDadosEditaveis(dados: DadosC, id: string){
+    let dadosConvertidos = JSON.stringify(dados)
+    window.localStorage.setItem(id, dadosConvertidos)
+  
+  }
 
-  obterDados(){
+  obterDadosStorage(){
     if(localStorage.length > 0){
       for(let c = 0; c <  localStorage.length; c++){
         let clienteId: string = localStorage.key(c) || ""
@@ -42,7 +61,12 @@ export class CadastroService{
         this.clientesCadastrados.push(clienteConvertido)
       }
     }
-    console.log(this.clientesCadastrados)
+  }
+
+  obterDadosStorageEditavel(id: string){
+    let clienteConvertido = JSON.parse(localStorage.getItem(id) || "")
+    this.clientesEditaveis = clienteConvertido
+    return this.clientesEditaveis
   }
 
 

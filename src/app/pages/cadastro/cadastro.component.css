@@ -13,7 +13,9 @@ main{
 }
 
 .clientes{
-    width: 79vw;
+    width: 83vw;
+    height: 86vh;
+    overflow-y: scroll;
 }
 
 menu{
@@ -62,4 +64,55 @@ menu button:hover{
     font-weight: bolder;
     height: 30px;
     border-radius: 100%;
+}
+
+.ficha{
+    width: 90%;
+    height: 150px; 
+    background-color: #fff;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.fichaAberta{
+    height: auto;
+    overflow: visible;
+}
+.visivel{
+    display: flex;
+}
+
+.escondido{
+    padding: 25px 10px;
+}
+
+.descricao{
+    height: auto;
+    width: 100%; 
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+.descricao > p {
+    margin: 10px 5px;
+}
+
+
+.info{
+    width: 50%;
+    font-size: larger;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+.info_contact > p {
+    margin: 10px 5px;
+}
+
+.info_bike > p {
+    margin: 10px 5px;
 }

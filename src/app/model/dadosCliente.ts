@@ -46,6 +46,9 @@ export class DadosC {
       setId(){
         this._id = new Date().getTime().toString() 
       }
+      set _Id(id: string){
+        this._id = id
+      }
       set _Nome(nome: string){
          this._nome = nome
       } 
@@ -76,3 +79,4 @@ export class DadosC {
 
 
 }
+
