@@ -54,6 +54,7 @@ export class FormularioEdicaoComponent {
     this.cadastroComponent.setClienteCadastrado( this.cadastroService.clientesCadastrados)
     this.cadastroComponent.fecharForm()
   }
+  
   fecharForm(){
     this.cadastroComponent.fecharForm()
   }

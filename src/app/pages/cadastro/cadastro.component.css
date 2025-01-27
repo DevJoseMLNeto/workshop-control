@@ -2,9 +2,17 @@
 
 .principal{
     height: 80vh;
+    width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+
+.conteudo_main{
+    display: flex;
+    margin: 10px 0;
+    height: 75vh;
 }
 
 main{
@@ -14,12 +22,12 @@ main{
 
 .clientes{
     width: 83vw;
-    height: 86vh;
+    height: 100%;
     overflow-y: scroll;
 }
 
 menu{
-    height: 88vh;
+    height: 100%;
     width: 17vw;
 }
 
@@ -44,7 +52,7 @@ menu button:hover{
     height: 40px;
     background-color: #fff;
     border-radius: 8px;
-    width: 95%;
+    width: 40%;
     margin: auto;
 }
 .busca input{
@@ -115,4 +123,24 @@ menu button:hover{
 
 .info_bike > p {
     margin: 10px 5px;
+}
+
+@media only screen and (max-width: 1000px){
+
+    menu{
+        height: auto;
+        display: flex;
+        width: auto;
+    }
+    .principal{
+        flex-direction: column;
+    }
+
+    .conteudo_main{
+        flex-direction: column;
+    }
+
+    .clientes{
+        width:100vw;
+    }
 }

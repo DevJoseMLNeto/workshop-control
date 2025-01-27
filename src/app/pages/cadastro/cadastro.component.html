@@ -3,10 +3,12 @@
 
 <main>
 <div class="principal" *ngIf="indexMain">
+    <div class="busca">
+        <input type="text" name="busca_i" id="busca_i" placeholder="Faça uma busca" (input)="buscaClientes($any($event.target).value)">
+    </div>
+    <div class="conteudo_main">
     <menu>
-        <div class="busca">
-            <input type="text" name="busca_i" id="busca_i" placeholder="Faça uma busca" (input)="buscaClientes($any($event.target).value)">
-        </div>
+       
         <button (click)="navegarHome()" class="home">Home</button>
         <button (click)="abrirForm()" class="add_cliente">Adicionar cliente</button>
         <button (click)="abrirFormEdit()" class="edit_cliente" [disabled]="habBTNEdit" type="button" >Editar cliente</button>
@@ -41,6 +43,7 @@
                 </article>
             </div>
             </ng-container>
+    </div>
     </div>
 </div>
 </main>
