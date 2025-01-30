@@ -79,7 +79,7 @@ menu button:hover{
 .ficha{
     width: 90%;
     max-width: 900px;
-    max-height: 150px; 
+    height: 150px; 
     background-color: #fff;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -135,6 +135,11 @@ p{
 
 @media only screen and (max-width: 720px){
 
+    .busca{
+        padding: 0px;
+        margin: 0 auto;
+        height: 30px;
+    }
     menu{
         height: auto;
         display: flex;
