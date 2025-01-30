@@ -47,14 +47,16 @@ menu button:hover{
     background-color:  rgb(255, 255, 34);
     border-right: none;
 }
+
 .busca{
     padding: 5px 5px;
     height: 40px;
     background-color: #fff;
     border-radius: 8px;
     width: 40%;
-    margin: auto;
+    margin: 20px auto;
 }
+
 .busca input{
     outline: none;
     width:80% ;
@@ -76,12 +78,14 @@ menu button:hover{
 
 .ficha{
     width: 90%;
-    height: 150px; 
+    max-width: 900px;
+    max-height: 150px; 
     background-color: #fff;
     margin: 0 auto;
     margin-bottom: 10px;
     border-radius: 8px;
     overflow: hidden;
+    word-wrap: break-word;
 }
 
 .fichaAberta{
@@ -125,13 +129,23 @@ menu button:hover{
     margin: 10px 5px;
 }
 
-@media only screen and (max-width: 1000px){
+p{
+    font-size:15px;
+}
+
+@media only screen and (max-width: 720px){
 
     menu{
         height: auto;
         display: flex;
         width: auto;
     }
+
+    menu > button {
+        font-size: 17px;
+
+    }
+
     .principal{
         flex-direction: column;
     }
@@ -143,4 +157,17 @@ menu button:hover{
     .clientes{
         width:100vw;
     }
+
+    .info_contact > p{
+        margin: 0px;
+    }
+
+    .info_bike > p{
+        margin: 0px;
+    }
+    article{
+        min-height: 150px;
+    }
+
+  
 }

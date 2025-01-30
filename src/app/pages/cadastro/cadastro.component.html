@@ -4,11 +4,10 @@
 <main>
 <div class="principal" *ngIf="indexMain">
     <div class="busca">
-        <input type="text" name="busca_i" id="busca_i" placeholder="Faça uma busca" (input)="buscaClientes($any($event.target).value)">
+        <input type="text" name="busca_i" id="busca_i" placeholder="Busque seu cliente" (input)="buscaClientes($any($event.target).value)">
     </div>
     <div class="conteudo_main">
     <menu>
-       
         <button (click)="navegarHome()" class="home">Home</button>
         <button (click)="abrirForm()" class="add_cliente">Adicionar cliente</button>
         <button (click)="abrirFormEdit()" class="edit_cliente" [disabled]="habBTNEdit" type="button" >Editar cliente</button>
@@ -18,17 +17,17 @@
     <div class="clientes">
         <ng-container *ngFor="let c of clientesCadastrados">
             <div class="ficha" [ngClass]="c._id">
-                <input type="radio" name="cliente" (input)="habilitarEdit(c._id)">
+                <input type="radio" name="cliente" (input)="habilitarEdit(c._id)" style="margin: 3px 3px;">
                 
                 <article class="visivel">
                 <div class="info_contact info">
-                    <p>Nome: {{c._nome}}</p>
-                    <p>Contato: {{c._contato}}</p>
-                    <p>Endereço: {{c._endereco}}</p>
+                    <p> <strong>Nome:</strong> {{c._nome}}</p>
+                    <p><strong>Contato:</strong> {{c._contato}}</p>
+                    <p><strong>Endereço:</strong> {{c._endereco}}</p>
                 </div>
                 <div class="info_bike info">
-                    <p>Bike: {{c._bike}}</p>
-                    <p>Serviço: {{c._ultServico}}</p>
+                    <p><strong>Bike:</strong> {{c._bike}}</p>
+                    <p><strong>Serviço:</strong> {{c._ultServico}}</p>
                     <p (click)="abrirFicha('fichaAberta',$any($event.target).parentElement.parentElement.parentElement)" style="color: rgb(11, 11, 178); cursor: pointer;">Descricao</p>
                 </div>
                 </article>

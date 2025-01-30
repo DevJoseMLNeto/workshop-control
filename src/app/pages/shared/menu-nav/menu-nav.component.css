@@ -9,3 +9,12 @@
 h1{
     padding: 27px;
 }
+
+@media only screen and (max-width: 720px){
+
+.nav_bar{
+    height: 10vh;
+}
+
+
+}
