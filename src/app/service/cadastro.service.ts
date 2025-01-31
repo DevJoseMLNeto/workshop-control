@@ -53,15 +53,23 @@ export class CadastroService{
   
   }
 
+  removerDado(id: string){
+    localStorage.removeItem(id)
+     this.obterDadosStorage()
+
+  }
+
   obterDadosStorage(){
-    if(localStorage.length > 0){
+    this.clientesCadastrados = []
       for(let c = 0; c <  localStorage.length; c++){
         let clienteId: string = localStorage.key(c) || ""
         let clienteConvertido = JSON.parse(localStorage.getItem(clienteId) || "")
         this.clientesCadastrados.push(clienteConvertido)
       }
-    }
+   
   }
+
+ 
 
   obterDadosStorageEditavel(id: string){
     let clienteConvertido = JSON.parse(localStorage.getItem(id) || "")

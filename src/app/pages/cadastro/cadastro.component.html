@@ -1,6 +1,6 @@
 <app-formularios *ngIf="indexForms"></app-formularios>
 <app-formulario-edicao *ngIf="indexEdit"></app-formulario-edicao>
-
+<app-menssages *ngIf="indexMenssages"></app-menssages>
 <main>
 <div class="principal" *ngIf="indexMain">
     <div class="busca">
@@ -11,7 +11,7 @@
         <button (click)="navegarHome()" class="home">Home</button>
         <button (click)="abrirForm()" class="add_cliente">Adicionar cliente</button>
         <button (click)="abrirFormEdit()" class="edit_cliente" [disabled]="habBTNEdit" type="button" >Editar cliente</button>
-        <button class="remove_cliente">Remover cliente</button>
+        <button (click)="removerCadastro()" class="remove_cliente" [disabled]="habBTNEdit">Remover cliente</button>
     </menu>
 
     <div class="clientes">

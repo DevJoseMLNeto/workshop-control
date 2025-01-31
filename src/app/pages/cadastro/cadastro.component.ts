@@ -14,22 +14,38 @@ export class CadastroComponent{
   indexForms: boolean = false
   indexMain: boolean = true
   indexEdit: boolean = false
+  indexMenssages: boolean = false
   classeFicha:string = ""
-  clientesCadastrados: any[] = this.cadastroService.clientesCadastrados
+  clientesCadastrados: any[] = [];
   clientesEditveis: any[] = []
   habBTNEdit: boolean = true
+  copiaClientesCadastrados: any[] = []
  
 
 constructor(private router: Router, private cadastroService: CadastroService){
   this.cadastroService.obterDadosStorage()
+  this.clientesCadastrados = this.cadastroService.clientesCadastrados
+  
 }
 
 setClienteCadastrado(cliente: any){
   this.clientesCadastrados = cliente
 }
 
-buscaClientes(nomes: string){
-  console.log(nomes)
+buscaClientes(busca: string){
+  this.cadastroService.obterDadosStorage()
+  console.log(this.cadastroService.clientesCadastrados)
+  let encontrado = this.cadastroService.clientesCadastrados.filter((evt)=>{
+    if(evt._nome.startsWith(busca)){
+      return evt
+    }
+  })
+
+  this.clientesCadastrados = []
+  for(let c = 0; c < encontrado.length; c++){
+    this.clientesCadastrados.push(encontrado[c])
+  }
+  
 }
 
 habilitarEdit(cliente: string){
@@ -40,12 +56,13 @@ habilitarEdit(cliente: string){
   }
 
   this.clientesEditveis.push(this.cadastroService.obterDadosStorageEditavel(cliente))
-  console.log(this.clientesEditveis)
 }
 abrirForm(){
   this.indexForms = true
   this.indexMain =false
 }
+
+
 
 abrirFormEdit(){
   this.indexEdit = true
@@ -56,7 +73,11 @@ fecharForm(){
   this.indexForms = false
   this.indexEdit = false
   this.indexMain = true
+  if(this.indexMain){
+    this.habBTNEdit = true
+  }
 }
+
 
 abrirFicha(classe: string, ficha: any){
   ficha.classList.toggle(classe)
@@ -66,6 +87,19 @@ navegarHome(){
   this.router.navigate(['./'])
 }
 
+removerCadastro(){
+  this.indexMenssages = true
+  this.indexMain = false
+  
+}
+
+messageConfirm(){
+  let id = this.clientesEditveis[0]._id
+  this.cadastroService.removerDado(id)
+  this.setClienteCadastrado(this.cadastroService.clientesCadastrados)
+
+  
+}
 
 
 }

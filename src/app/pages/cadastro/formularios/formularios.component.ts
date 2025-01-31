@@ -38,6 +38,7 @@ fecharForm(){
 enviarDados(){
   this.cadastroService.receberDados(this.nome,this.contato,this.endereco,this.bike,this.ultServico,this.data, this.retorno, this.valor, this.maisInfo)
   this.cadastroService.obterDadosStorage()
+  console.log(this.cadastroService.clientesCadastrados)
   this.cadastroComponent.setClienteCadastrado( this.cadastroService.clientesCadastrados)
   this.cadastroComponent.fecharForm()
 }
