@@ -5,6 +5,7 @@ import { FormulariosComponent } from './formularios/formularios.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormularioEdicaoComponent } from './formulario-edicao/formulario-edicao.component';
 import { MenssagesComponent } from './menssages/menssages.component';
+import { FormularioNovoServicoComponent } from './formulario-novo-servico/formulario-novo-servico.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { MenssagesComponent } from './menssages/menssages.component';
     FormulariosComponent,
     FormularioEdicaoComponent,
     MenssagesComponent,
+    FormularioNovoServicoComponent,
   ],
   imports: [
     CommonModule,

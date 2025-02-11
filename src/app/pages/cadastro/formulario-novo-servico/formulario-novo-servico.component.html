@@ -1,0 +1,24 @@
+<form  (ngSubmit)="enviarDados()" class="box_addclient ">
+    
+    <div class="content">
+        <label for="dataI">Data:</label>
+        <input  [(ngModel)]="novosDados.novaData"  type="date" name="dataI" id="dataI" required> 
+    </div>
+
+    <div class="content">
+        <label for="retornoI">Servico:</label>
+        <input  [(ngModel)]="novosDados.novoServico" name="retornoI" id="retornoI" type="text" required>
+    </div>
+    <div class="content">
+        <label for="valorI">Valor:</label>
+        <input  [(ngModel)]="novosDados.novoValor" name="valorI"id="valorI" type="number" required>
+    </div>
+    <div class="content">
+        <label for="moreInfoI">Mais informações:</label>
+        <input  [(ngModel)]="novosDados.novaDescricao" name="moreInfoI" id="moreInfoI" type="text" required>
+    </div>
+    <div class="btns">
+        <button type="submit" class="ok">Adicionar</button>
+        <button  (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+    </div>
+</form>

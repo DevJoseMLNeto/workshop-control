@@ -14,19 +14,10 @@ import { DadosC } from 'src/app/model/dadosCliente';
 
 
 export class FormulariosComponent {
-  nome: string = ""
-  contato:string = ""
-  endereco:string = ""
-  bike:string = ""
-  ultServico:string = ""
-  data:string = ""
-  retorno:string = ""
-  valor:string = ""
-  maisInfo:string = ""
+  dadosC = new DadosC()
   meuFormGroup! : FormGroup;
 
-  constructor(private cadastroComponent: CadastroComponent, private cadastroService:CadastroService){
-    
+  constructor(private cadastroComponent: CadastroComponent, private cadastroService:CadastroService){ 
     
   }
   
@@ -36,10 +27,9 @@ fecharForm(){
 }
 
 enviarDados(){
-  this.cadastroService.receberDados(this.nome,this.contato,this.endereco,this.bike,this.ultServico,this.data, this.retorno, this.valor, this.maisInfo)
+  this.cadastroService.receberDados(this.dadosC)
   this.cadastroService.obterDadosStorage()
-  console.log(this.cadastroService.clientesCadastrados)
-  this.cadastroComponent.setClienteCadastrado( this.cadastroService.clientesCadastrados)
+  this.cadastroComponent.ngOnInit()
   this.cadastroComponent.fecharForm()
 }
 

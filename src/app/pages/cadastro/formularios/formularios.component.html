@@ -2,45 +2,40 @@
     <h1 style="text-align: center;">Formulario de cadastro</h1>
     <div class="content">
         <label for="nomeI">Nome:</label>
-        <input [(ngModel)]="nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano" required>
+        <input [(ngModel)]="dadosC._nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano" required>
     </div>
 
     <div class="content">
         <label for="telefoneI">Contato:</label>
-        <input  [(ngModel)]="contato" type="tel" name="telefoneI" id="telefoneI" placeholder="Ex: 12 912345678" required>
+        <input  [(ngModel)]="dadosC._contato" type="tel" name="telefoneI" id="telefoneI" placeholder="Ex: 12 912345678" required>
     </div>
 
     <div class="content">
         <label for="whatsappI">Endereço::</label>
-        <input  [(ngModel)]="endereco" type="text" name="whatsappI"id="whatsappI"  placeholder="Ex: 12 912345678" required>    
+        <input  [(ngModel)]="dadosC._endereco" type="text" name="whatsappI"id="whatsappI"  placeholder="Ex: 12 912345678" required>    
     </div>
     
     <div class="content">
         <label for="bikeI">Bike:</label>
-        <input  [(ngModel)]="bike" type="text" name="bikeI" id="bikeI" required>
-    </div>
-
-    <div class="content">
-        <label for="ulServicoI">Ultimo serviço:</label>
-        <input  [(ngModel)]="ultServico" type="text" name="ulServicoI"id="ulServicoI" required> 
+        <input  [(ngModel)]="dadosC._bike" type="text" name="bikeI" id="bikeI" required>
     </div>
     
     <div class="content">
         <label for="dataI">Data:</label>
-        <input  [(ngModel)]="data"  type="date" name="dataI" id="dataI" required> 
+        <input  [(ngModel)]="dadosC._ultServico[0]._data"  type="date" name="dataI" id="dataI" required> 
     </div>
 
     <div class="content">
-        <label for="retornoI">Retorno:</label>
-        <input  [(ngModel)]="retorno" name="retornoI" id="retornoI" type="date" required>
+        <label for="retornoI">Servico:</label>
+        <input  [(ngModel)]="dadosC._ultServico[0]._servico" name="retornoI" id="retornoI" type="text" required>
     </div>
     <div class="content">
         <label for="valorI">Valor:</label>
-        <input  [(ngModel)]="valor" name="valorI"id="valorI" type="number" required>
+        <input  [(ngModel)]="dadosC._ultServico[0]._valor" name="valorI"id="valorI" type="number" required>
     </div>
     <div class="content">
         <label for="moreInfoI">Mais informações:</label>
-        <input  [(ngModel)]="maisInfo" name="moreInfoI" id="moreInfoI" type="text" required>
+        <input  [(ngModel)]="dadosC._ultServico[0]._maisInfo" name="moreInfoI" id="moreInfoI" type="text" required>
     </div>
     <div class="btns">
         <button type="submit" class="ok">Adicionar</button>

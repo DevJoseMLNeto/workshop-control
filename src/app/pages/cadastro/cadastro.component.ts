@@ -9,23 +9,49 @@ import { CadastroService } from 'src/app/service/cadastro.service';
   styleUrls: ['./cadastro.component.css'],
   providers: [CadastroService]
 })
-export class CadastroComponent{
+
+export class CadastroComponent implements OnInit{
 
   indexForms: boolean = false
   indexMain: boolean = true
   indexEdit: boolean = false
   indexMenssages: boolean = false
+  indexFormsService: boolean = false
   classeFicha:string = ""
-  clientesCadastrados: any[] = [];
+  clientesCadastrados: DadosC[] = [];
   clientesEditveis: any[] = []
   habBTNEdit: boolean = true
   copiaClientesCadastrados: any[] = []
+  historicoServicosAtivo: boolean = true
  
 
 constructor(private router: Router, private cadastroService: CadastroService){
-  this.cadastroService.obterDadosStorage()
-  this.clientesCadastrados = this.cadastroService.clientesCadastrados
   
+}
+
+ngOnInit(){
+  this.cadastroService.obterDadosStorage()
+  this.clientesCadastrados = this.cadastroService.clientesCadastrados 
+  this.clientesCadastrados.map((e)=>{
+    e._ultServico.forEach((v, i, a)=>{
+      if(i == a.length -1){
+        v._index = true
+      }
+    })
+  })
+}
+
+moverHistorico(i:number){
+
+  let arr = this.clientesCadastrados[i]._ultServico.pop()
+  this.clientesCadastrados[i]._ultServico.unshift(arr)
+  this.clientesCadastrados[i]._ultServico.forEach((v, i, a)=>{
+    v._index = false
+    if(i == a.length -1){
+      v._index = true
+    }
+  })
+    
 }
 
 setClienteCadastrado(cliente: any){
@@ -34,7 +60,6 @@ setClienteCadastrado(cliente: any){
 
 buscaClientes(busca: string){
   this.cadastroService.obterDadosStorage()
-  console.log(this.cadastroService.clientesCadastrados)
   let encontrado = this.cadastroService.clientesCadastrados.filter((evt)=>{
     if(evt._nome.startsWith(busca)){
       return evt
@@ -62,14 +87,18 @@ abrirForm(){
   this.indexMain =false
 }
 
-
-
 abrirFormEdit(){
   this.indexEdit = true
   this.indexMain = false
 }
 
+abrirFormNovoServico(){
+  this.indexFormsService = true
+  this.indexMain = false
+}
+
 fecharForm(){
+  this.indexFormsService = false
   this.indexForms = false
   this.indexEdit = false
   this.indexMain = true

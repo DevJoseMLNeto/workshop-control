@@ -1,6 +1,16 @@
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward_ios" />
+    
+
+
+</head>
+
 <app-formularios *ngIf="indexForms"></app-formularios>
 <app-formulario-edicao *ngIf="indexEdit"></app-formulario-edicao>
 <app-menssages *ngIf="indexMenssages"></app-menssages>
+<app-formulario-novo-servico *ngIf="indexFormsService"></app-formulario-novo-servico>
+
 <main>
 <div class="principal" *ngIf="indexMain">
     <div class="busca">
@@ -11,11 +21,12 @@
         <button (click)="navegarHome()" class="home">Home</button>
         <button (click)="abrirForm()" class="add_cliente">Adicionar cliente</button>
         <button (click)="abrirFormEdit()" class="edit_cliente" [disabled]="habBTNEdit" type="button" >Editar cliente</button>
+        <button (click)="abrirFormNovoServico()" class="edit_cliente" [disabled]="habBTNEdit" type="button" >Novo serviço</button>
         <button (click)="removerCadastro()" class="remove_cliente" [disabled]="habBTNEdit">Remover cliente</button>
     </menu>
 
     <div class="clientes">
-        <ng-container *ngFor="let c of clientesCadastrados">
+        <ng-container *ngFor="let c of clientesCadastrados ; let i = index">
             <div class="ficha" [ngClass]="c._id">
                 <input type="radio" name="cliente" (input)="habilitarEdit(c._id)" style="margin: 3px 3px;">
                 
@@ -27,18 +38,24 @@
                 </div>
                 <div class="info_bike info">
                     <p><strong>Bike:</strong> {{c._bike}}</p>
-                    <p><strong>Serviço:</strong> {{c._ultServico}}</p>
-                    <p (click)="abrirFicha('fichaAberta',$any($event.target).parentElement.parentElement.parentElement)" style="color: rgb(11, 11, 178); cursor: pointer;">Descricao</p>
+                    <p (click)="abrirFicha('fichaAberta', $any($event.target).parentElement.parentElement.parentElement)" style="color: rgb(11, 11, 178); cursor: pointer;">Serviços</p>
                 </div>
                 </article>
                 <article class="escondido">
-                <div class="descricao">
-                    <p> <strong>Data:</strong> {{c._data}}</p>
-                    <p><strong>Retorno:</strong> {{c._retorno}}</p>
-                    <p><strong>Valor:</strong> {{c._valor}}</p>
-                    <p><strong>Descrição do serviço:</strong> {{c._maisInfo}}</p>
-                    <p></p>
-                </div>
+                    <ng-container *ngFor="let arrayServicos of c._ultServico" >
+                        <ng-template [ngIf]="arrayServicos._index">
+                            <div class="descricao">
+
+                        <p><strong>Data:</strong> {{arrayServicos._data}}</p>
+                        <p><strong>Serviço:</strong> {{arrayServicos._servico}}</p>
+                        <p><strong>Valor:</strong> {{arrayServicos._valor}}</p>
+                        <p><strong>Descrição do serviço:</strong> {{arrayServicos._maisInfo}}</p>                
+                            </div>  
+                        </ng-template>
+                    </ng-container>
+                    <div class="btn">
+                        <button (click)="moverHistorico(i)" class="anterior btns material-symbols-outlined" style>arrow_forward_ios</button>
+                    </div>
                 </article>
             </div>
             </ng-container>

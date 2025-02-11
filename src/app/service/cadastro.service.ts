@@ -15,31 +15,36 @@ export class CadastroService{
   }
 
   
-  receberDados(nome: string, contato: string, endereco: string, bike: string, ultServico: string, data: string, retorno: string, valor: string, maisInfo: string){
-    this.dadosC._Nome = nome
-    this.dadosC._Contato = contato
-    this.dadosC._Endereco = endereco
-    this.dadosC._Bike = bike
-    this.dadosC._UltServico = ultServico
-    this.dadosC._Data = data
-    this.dadosC._Retorno = retorno
-    this.dadosC._MaisInfo = maisInfo
-    this.dadosC._valor = valor
+  receberDados(dados: DadosC){
+
+    this.dadosC = dados
     this.dadosC.setId()
     this.enviarDados(this.dadosC, this.dadosC.Id)
+
   }
+
   receberDadosEditaveis(dados: DadosC, id: string){
-    this.dadosC._Nome = dados._nome
-    this.dadosC._Contato = dados._contato
-    this.dadosC._Endereco = dados._endereco
-    this.dadosC._Bike = dados._bike
-    this.dadosC._UltServico = dados._ultServico
-    this.dadosC._Data = dados._data
-    this.dadosC._Retorno = dados._retorno
-    this.dadosC._MaisInfo = dados._maisInfo
-    this.dadosC._valor = dados._valor
-    this.dadosC._Id = dados._id
-    this.enviarDadosEditaveis(this.dadosC, id)
+    this.enviarDados(dados, id)
+  }
+
+  receberDadosNovosServicos(dados:DadosC, id: string, novoDados: any){
+  
+    this.dadosC = dados
+
+    this.dadosC._ultServico.push({
+      _data:  novoDados.novaData,
+      _servico:   novoDados.novoServico,
+      _valor:  novoDados.novoValor,
+      _maisInfo:  novoDados.novaDescricao,
+      _index: false
+    })
+
+    this.dadosC.index =  this.dadosC._ultServico.length -1
+
+    
+
+    console.log(this.dadosC)
+    this.enviarDados(this.dadosC, id)
   }
 
   enviarDados(dados: DadosC, id: string){
@@ -47,11 +52,7 @@ export class CadastroService{
     window.localStorage.setItem(id, dadosConvertidos)
   
   }
-  enviarDadosEditaveis(dados: DadosC, id: string){
-    let dadosConvertidos = JSON.stringify(dados)
-    window.localStorage.setItem(id, dadosConvertidos)
-  
-  }
+
 
   removerDado(id: string){
     localStorage.removeItem(id)
