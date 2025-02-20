@@ -1,1 +1,22 @@
-<p>insumos works!</p>
+<app-formulario-insumos *ngIf="indexFormularioAdd"></app-formulario-insumos>
+<div class="conteudo_main" *ngIf="indexMain">
+    <menu>
+        <button class="home btnsNav">Home</button>
+        <button class="add_cliente btnsNav" (click)="abrirForms()">Adicionar insumo</button>
+    </menu>
+    <div class="insumos_area">
+       
+        <div class="card insumo" style="">
+            <div class="card-body">
+              <h5 class="card-title">Graxa</h5>
+              <p class="card-text">Graxa da marca bom produto para passar em rolamentos</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+            </ul>
+          </div>
+
+    </div>
+</div>

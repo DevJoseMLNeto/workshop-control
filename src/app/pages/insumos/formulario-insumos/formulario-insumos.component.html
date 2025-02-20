@@ -1,0 +1,34 @@
+<form  (ngSubmit)="enviarDados()" class="box_addclient ">
+    <h1 style="text-align: center;">Formulario de insumos</h1>
+
+    <div class="content">
+        <label for="nomeI">Nome:</label>
+        <input [(ngModel)]="this.dadosInsumo._nome" type="text" name="nomeI" id="nomeI" placeholder="Insumo" required>
+    </div>
+ 
+
+    <div class="content">
+        <label for="descricaoI">Descrição:</label>
+        <input [(ngModel)]="this.dadosInsumo._desc" type="text" name="descricaoI" id="descricaoI" placeholder="Descrição" required>
+    </div>
+
+    <div class="content">
+        <label for="marcaI">Marca:</label>
+        <input [(ngModel)]="this.dadosInsumo._marca"  type="text" name="marcaI" id="marcaI"  placeholder="" required>    
+    </div>
+    
+    <div class="content">
+        <label for="pesoI">Peso:</label>
+        <input [(ngModel)]="this.dadosInsumo._peso" type="text" name="pesoI" id="pesoI"  placeholder="1000g" required>    
+    </div>
+
+    <div class="content">
+        <label for="valorI">Valor:</label>
+        <input [(ngModel)]="this.dadosInsumo._valor" type="text" name="valorI" id="valorI"  placeholder="200.00" required>    
+    </div>
+    
+    <div class="btns">
+        <button type="submit" class="ok">Adicionar</button>
+        <button  (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+    </div>
+</form>

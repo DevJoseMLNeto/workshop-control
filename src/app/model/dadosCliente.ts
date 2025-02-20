@@ -17,11 +17,8 @@ export class DadosC {
     index: number = this._ultServico.length -1
     constructor(){}
       setId(){
-        this._id = new Date().getTime().toString() 
+        this._id = "C" + new Date().getTime().toString() 
       }
-
-
-      
        get Id() : string {
         return this._id
       }

@@ -16,10 +16,12 @@ import { DadosC } from 'src/app/model/dadosCliente';
 export class FormulariosComponent {
   dadosC = new DadosC()
   meuFormGroup! : FormGroup;
+  
 
   constructor(private cadastroComponent: CadastroComponent, private cadastroService:CadastroService){ 
     
   }
+
   
 
 fecharForm(){

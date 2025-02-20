@@ -1,0 +1,43 @@
+.conteudo_main{
+    display: flex;
+    margin: 10px 0;
+    height: 75vh;
+}
+
+menu{
+    width: 17vw;
+}
+
+.btnsNav{
+    cursor: pointer;
+    width: 95%;
+    height: 100px;
+    background-color: transparent;
+    font-size: large;
+    font-weight: 600;
+    transition-duration: 100ms;
+    margin: 7px;
+    border-radius: 8px;
+}
+
+.btnsNav:hover{
+    background-color:  rgb(255, 255, 34);
+    border-right: none;
+}
+
+.insumos_area{
+    width: 83vw;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+
+
+}
+
+.insumo{
+    width: 15rem;
+    background-color: #fff;
+    height: 35vh;
+    margin: 20px;
+}

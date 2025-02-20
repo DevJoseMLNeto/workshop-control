@@ -32,9 +32,13 @@ constructor(private router: Router, private cadastroService: CadastroService){
 ngOnInit(){
   this.cadastroService.obterDadosStorage()
   this.clientesCadastrados = this.cadastroService.clientesCadastrados 
+
   this.clientesCadastrados.map((e)=>{
+
     e._ultServico.forEach((v, i, a)=>{
+
       if(i == a.length -1){
+
         v._index = true
       }
     })

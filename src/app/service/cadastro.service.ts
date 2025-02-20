@@ -16,7 +16,6 @@ export class CadastroService{
 
   
   receberDados(dados: DadosC){
-
     this.dadosC = dados
     this.dadosC.setId()
     this.enviarDados(this.dadosC, this.dadosC.Id)

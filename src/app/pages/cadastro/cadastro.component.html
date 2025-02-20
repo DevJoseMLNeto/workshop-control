@@ -41,22 +41,23 @@
                     <p (click)="abrirFicha('fichaAberta', $any($event.target).parentElement.parentElement.parentElement)" style="color: rgb(11, 11, 178); cursor: pointer;">Serviços</p>
                 </div>
                 </article>
+                <ng-container *ngFor="let arrayServicos of c._ultServico" >
+                    <ng-template [ngIf]="arrayServicos._index">
                 <article class="escondido">
-                    <ng-container *ngFor="let arrayServicos of c._ultServico" >
-                        <ng-template [ngIf]="arrayServicos._index">
                             <div class="descricao">
 
-                        <p><strong>Data:</strong> {{arrayServicos._data}}</p>
+                        <p style="text-align: center; font-size: large;"><strong>{{arrayServicos._data}}</strong></p>
                         <p><strong>Serviço:</strong> {{arrayServicos._servico}}</p>
                         <p><strong>Valor:</strong> {{arrayServicos._valor}}</p>
                         <p><strong>Descrição do serviço:</strong> {{arrayServicos._maisInfo}}</p>                
                             </div>  
-                        </ng-template>
-                    </ng-container>
-                    <div class="btn">
-                        <button (click)="moverHistorico(i)" class="anterior btns material-symbols-outlined" style>arrow_forward_ios</button>
-                    </div>
-                </article>
+                            
+                        </article>
+                    </ng-template>
+                </ng-container>
+                <div class="btn">
+                    <button (click)="moverHistorico(i)" class="anterior btns material-symbols-outlined" style>arrow_forward_ios</button>
+                </div>
             </div>
             </ng-container>
     </div>
