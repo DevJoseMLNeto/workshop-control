@@ -7,7 +7,10 @@ import { DadosInsumo } from '../model/dadosInsumo';
 export class InsumosService {
   dadosInsumo: DadosInsumo = new DadosInsumo()
   insumos: DadosInsumo[] = []
+  insumoEditaveis?: string;
   constructor() { }
+
+
 
   receberDados(dados: DadosInsumo){
     this.dadosInsumo = dados
@@ -22,11 +25,19 @@ export class InsumosService {
 
   obterDadosStorage(){
     this.insumos = []
-      for(let i = 0; i <  localStorage.length; c++){
-        let clienteId: string = localStorage.key(c) || ""
-        let clienteConvertido = JSON.parse(localStorage.getItem(clienteId) || "")
-        this.clientesCadastrados.push(clienteConvertido)
+      for(let i = 0; i <  localStorage.length; i++){
+        let insumoId: string = localStorage.key(i) || ""
+        if(insumoId.charAt(0)=="I"){
+          let clienteConvertido = JSON.parse(localStorage.getItem(insumoId) || "")
+          this.insumos.push(clienteConvertido)
+        }
       }
    
+  }
+
+  obterDadosStorageEditavel(id: string){
+    let clienteConvertido = JSON.parse(localStorage.getItem(id) || "")
+    this.insumoEditaveis = clienteConvertido
+    return this.insumoEditaveis
   }
 }

@@ -1,22 +1,24 @@
 <app-formulario-insumos *ngIf="indexFormularioAdd"></app-formulario-insumos>
 <div class="conteudo_main" *ngIf="indexMain">
     <menu>
-        <button class="home btnsNav">Home</button>
+        <button class="home btnsNav" (click)="retornarHome()">Home</button>
         <button class="add_cliente btnsNav" (click)="abrirForms()">Adicionar insumo</button>
+        <button class="remover btnsNav">Remover</button>
     </menu>
     <div class="insumos_area">
-       
-        <div class="card insumo" style="">
-            <div class="card-body">
-              <h5 class="card-title">Graxa</h5>
-              <p class="card-text">Graxa da marca bom produto para passar em rolamentos</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item</li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
-            </ul>
+      <ng-container *ngFor="let i of insumo">
+        <div class="card insumo" [ngClass]="i._id" #card>
+          <input id="check" type="checkbox" [checked]="i._disponibilidade" (input)="checkagem($any($event.target).checked, $any($event.target).parentElement, i._id )">
+          <div class="card-body">
+            <h5 class="card-title">{{i._nome}}</h5>
+            <p class="card-text">{{i._desc}}s</p>
           </div>
-
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{i._marca}}</li>
+            <li class="list-group-item">{{i._peso}}</li>
+            <li class="list-group-item">R$ {{i._valor}}</li>
+          </ul>
+        </div>
+      </ng-container>
     </div>
 </div>

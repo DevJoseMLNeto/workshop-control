@@ -59,12 +59,14 @@ export class CadastroService{
 
   }
 
-  obterDadosStorage(){
+  obterDadosStorage(){ 
     this.clientesCadastrados = []
       for(let c = 0; c <  localStorage.length; c++){
         let clienteId: string = localStorage.key(c) || ""
-        let clienteConvertido = JSON.parse(localStorage.getItem(clienteId) || "")
-        this.clientesCadastrados.push(clienteConvertido)
+        if(clienteId.charAt(0) == "C"){
+          let clienteConvertido = JSON.parse(localStorage.getItem(clienteId) || "")
+          this.clientesCadastrados.push(clienteConvertido)
+        }else{}
       }
    
   }

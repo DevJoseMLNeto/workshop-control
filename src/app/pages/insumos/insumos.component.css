@@ -35,9 +35,14 @@ menu{
 
 }
 
+
 .insumo{
     width: 15rem;
     background-color: #fff;
     height: 35vh;
     margin: 20px;
+}
+
+.indisponivel{
+    background-color: rgb(158, 158, 158);
 }
