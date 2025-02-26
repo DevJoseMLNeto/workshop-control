@@ -45,7 +45,36 @@
 }
 
 @media only screen and (max-width: 720px){
+    h1{
+        font-size: 15px;
+        margin: 12px;
+    }
     .box_addclient {
         width: 80vw;
+        height: auto;
+        
+    }
+
+    .content{
+        margin-bottom: 12px;
+        font-size: 12px;
+
+    }
+
+    .content input{
+        outline: none;
+        border: 3px solid black;
+        border-radius: 8px;
+        font-size: 12px;
+        padding: 2px 5px;
+    }
+    .btns button{
+        cursor: pointer;
+        height: 30px;
+        width: 70px;
+        border-radius: 8px;
+        background-color: blue;
+        color: #fff;
+        font-size: 12px;
     }
 }

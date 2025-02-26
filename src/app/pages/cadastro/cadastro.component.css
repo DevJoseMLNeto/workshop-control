@@ -85,7 +85,6 @@ menu button:hover{
     margin-bottom: 10px;
     border-radius: 8px;
     overflow: hidden;
-
     word-wrap: break-word;
 }
 
@@ -164,17 +163,24 @@ p{
     .busca{
         padding: 0px;
         margin: 0 auto;
-        height: 30px;
+        height: 20px;
+        display: grid;
+    }
+
+    .busca input{
+        height: 20px;
+        font-size:12px;
     }
     menu{
         height: auto;
         display: flex;
         width: auto;
+        margin: 20px;
     }
 
     menu > button {
-        font-size: 17px;
-
+        font-size: 12px;
+        height: 100%;
     }
 
     .principal{
@@ -191,13 +197,31 @@ p{
 
     .info_contact > p{
         margin: 0px;
+        font-size: 12px;
+
     }
 
     .info_bike > p{
         margin: 0px;
+        font-size: 12px;
+
+    }
+    .ficha{
+        height:130px;
     }
     article{
-        min-height: 150px;
+        min-height: 100px;
+        border: 0px;
+    }
+    .descricao p{
+        font-size: 12px;
+    }
+    .fichaAberta{
+        height: auto !important;
+    }
+
+    .btns{
+        font-size: 17px;
     }
 
   

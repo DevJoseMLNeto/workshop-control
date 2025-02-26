@@ -21,13 +21,6 @@
     padding: 2px 5px;
 }
 
-.content textarea{
-    font-size: 24px;
-    border: 2px solid black;
-    border-radius: 8px;
-    padding: 5px;
-    font-size: 20px;
-}
 
 .btns{
     width: 60%;
@@ -45,7 +38,43 @@
 }
 
 @media only screen and (max-width: 720px){
+    h1{
+        font-size: 15px;
+        margin: 12px;
+    }
     .box_addclient {
         width: 80vw;
+        height: auto;
+        
+    }
+
+    .content{
+        font-size: 12px;
+        margin: 0px;
+
+
+    }
+
+    .content input{
+        outline: none;
+        border: 3px solid black;
+        border-radius: 8px;
+        font-size: 12px;
+        padding: 2px 5px;
+        margin: 0px;
+
+    }
+
+    .content label{
+        margin-top: 12px;
+    }
+    .btns button{
+        cursor: pointer;
+        height: 30px;
+        width: 70px;
+        border-radius: 8px;
+        background-color: blue;
+        color: #fff;
+        font-size: 12px;
     }
 }
