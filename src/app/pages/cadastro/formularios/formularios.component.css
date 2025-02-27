@@ -7,7 +7,7 @@
 }
 
 .content{
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: large;
     font-weight: 700;
     display: flex;
@@ -15,7 +15,7 @@
 }
 .content input{
     outline: none;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 8px;
     font-size: large;
     padding: 2px 5px;
@@ -56,13 +56,10 @@
     }
 
     .content input{
+        display: grid;
         outline: none;
-        border: 3px solid black;
         border-radius: 8px;
         font-size: 12px;
-        padding: 2px 5px;
-        margin: 0px;
-
     }
 
     .content label{
@@ -76,5 +73,6 @@
         background-color: blue;
         color: #fff;
         font-size: 12px;
+        margin-top: 14px;
     }
 }

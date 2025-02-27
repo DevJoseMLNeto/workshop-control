@@ -33,25 +33,20 @@ background-color: rgb(255, 255, 34);
 }
 
 .ladoB{
-width: 50vw;
-display: flex;
-justify-content: center;
-align-items: center;
-border-radius: 8px;
-margin-left: 47.47px;
-
+    height: 80%;
+    margin: 0 auto;
 }
 
 .descrition{
-font-size: 1.6em;
 width: 45vw;
-height: 350px;
+height: auto;
 }
 .descrition h2{
 text-align: center;
 }
 .descrition  p{
-margin: 40px 20px;
+margin: 20% auto;
+font-size: x-large;
 opacity: 0;
 animation-name: texto ;
 animation-duration: 800ms;
@@ -67,8 +62,38 @@ from{
 
 
 
-/* AREA JAVACSRIPT */
+@media only screen and (max-width: 720px) {
+    .btn_f{
+        height: 12%;
+        width: 90%;
+        border-radius: 8px;
+        font-size: 12px;
+    }
 
+    .ladoA{
+        width: 25vw;
+    }
+
+    .ladoB{
+        height: 80%;
+    margin: 0 auto;
+    }
+    .descrition{
+        width: 60vw;
+        height: 100%;
+    }
+    .descrition h2{
+        text-align: center;
+        font-size: x-large;
+        }
+        .descrition  p{
+        opacity: 0;
+        font-size: 14px;
+        animation-name: texto ;
+        animation-duration: 800ms;
+        animation-fill-mode: both;
+        }
+}
 
 
 

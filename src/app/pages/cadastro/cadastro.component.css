@@ -49,12 +49,12 @@ menu button:hover{
 }
 
 .busca{
-    padding: 5px 5px;
     height: 40px;
     background-color: #fff;
     border-radius: 8px;
     width: 40%;
     margin: 20px auto;
+    display: grid;
 }
 
 .busca input{

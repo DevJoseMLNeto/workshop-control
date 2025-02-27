@@ -1,5 +1,5 @@
 <form  (ngSubmit)="enviarDados()" class="box_addclient ">
-    <h1 style="text-align: center;">Formulario de cadastro</h1>
+    <h1 style="text-align: center;"></h1>
     <div class="content">
         <label for="nomeI">Nome:</label>
         <input [(ngModel)]="dadosC._nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano" required>
@@ -7,11 +7,11 @@
 
     <div class="content">
         <label for="telefoneI">Contato:</label>
-        <input  [(ngModel)]="dadosC._contato" type="tel" name="telefoneI" id="telefoneI" placeholder="Ex: 12 912345678" required>
+        <input  [(ngModel)]="dadosC._contato" type="tel" name="telefoneI" id="telefoneI" required>
     </div>
 
     <div class="content">
-        <label for="whatsappI">Endereço::</label>
+        <label for="whatsappI">Endereço:</label>
         <input  [(ngModel)]="dadosC._endereco" type="text" name="whatsappI"id="whatsappI"  placeholder="Ex: 12 912345678" required>    
     </div>
     
