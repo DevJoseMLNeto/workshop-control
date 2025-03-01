@@ -88,6 +88,11 @@ menu button:hover{
     word-wrap: break-word;
 }
 
+.data{
+    text-align: center; 
+    font-size: large;
+}
+
 .fichaAberta{
     height: auto;
     
@@ -165,6 +170,10 @@ p{
         margin: 0 auto;
         height: 20px;
         display: grid;
+    }
+    .data{
+        text-align: center; 
+        font-size: 20px;
     }
 
     .busca input{
