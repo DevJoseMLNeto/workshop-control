@@ -7,13 +7,24 @@
 menu{
     width: 17vw;
 }
+menu button{
+    cursor: pointer;
+    width: 95%;
+    height: 60px;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 600;
+    transition-duration: 100ms;
+    margin: 7px;
+    border-radius: 8px;
+}
 
 .btnsNav{
     cursor: pointer;
     width: 95%;
     height: 100px;
     background-color: transparent;
-    font-size: large;
+    font-size: 12px;
     font-weight: 600;
     transition-duration: 100ms;
     margin: 7px;
@@ -37,12 +48,20 @@ menu{
 
 
 .insumo{
-    width: 15rem;
+    width: 11rem;
+    font-size: 12px;
     background-color: #fff;
-    height: 35vh;
+    height: 30vh;
     margin: 20px;
 }
 
 .indisponivel{
     background-color: rgb(158, 158, 158);
+}
+
+li{
+    padding: 5px 10px;
+} 
+h5{
+    font-size: 15px;
 }

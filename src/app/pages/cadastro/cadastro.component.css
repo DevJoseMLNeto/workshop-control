@@ -34,9 +34,9 @@ menu{
 menu button{
     cursor: pointer;
     width: 95%;
-    height: 100px;
+    height: 60px;
     background-color: transparent;
-    font-size: large;
+    font-size: 12px;
     font-weight: 600;
     transition-duration: 100ms;
     margin: 7px;
@@ -49,11 +49,10 @@ menu button:hover{
 }
 
 .busca{
-    height: 40px;
     background-color: #fff;
     border-radius: 8px;
     width: 40%;
-    margin: 20px auto;
+    margin: 0px auto;
     display: grid;
 }
 
@@ -63,7 +62,7 @@ menu button:hover{
     padding: 5px;
     border-radius: 8px;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 
@@ -79,7 +78,7 @@ menu button:hover{
 .ficha{
     width: 90%;
     max-width: 900px;
-    height: 150px; 
+    height: 120px; 
     background-color: #fff;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -90,7 +89,6 @@ menu button:hover{
 
 .data{
     text-align: center; 
-    font-size: large;
 }
 
 .fichaAberta{
@@ -139,11 +137,11 @@ menu button:hover{
     width: 50%;
     font-size: larger;
     font-family: sans-serif;
-    padding: 10px;
+    padding: 0px 10px;
 }
 
 .info_contact > p {
-    margin: 10px 5px;
+    margin: 5px 0px;
 }
 
 .info_bike > p {
@@ -151,15 +149,15 @@ menu button:hover{
 }
 
 p{
-    font-size:15px;
+    font-size:12px;
 }
 .btn{
     height: 45px;
-    display: flex;
-    justify-content: space-around;
+    display: block;
+    width: auto;
 }
 .btns{
-    font-size: 25px;
+    font-size: 15px;
     background-color: transparent;
 }
 @media only screen and (max-width: 720px){
@@ -174,7 +172,6 @@ p{
     }
     .data{
         text-align: center; 
-        font-size: 20px;
     }
 
     .busca input{
