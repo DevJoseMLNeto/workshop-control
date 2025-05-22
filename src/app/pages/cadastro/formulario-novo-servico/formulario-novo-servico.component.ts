@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { DadosC } from 'src/app/model/dadosCliente';
+import { Component, inject } from '@angular/core';
+import { Clientes } from 'src/app/model/cliente';
 import { CadastroComponent } from '../cadastro.component';
 import { CadastroService } from 'src/app/service/cadastro.service';
+import { FormBuilder} from '@angular/forms';
+import { Servico } from 'src/app/model/servico';
 
 @Component({
   selector: 'app-formulario-novo-servico',
@@ -9,28 +11,40 @@ import { CadastroService } from 'src/app/service/cadastro.service';
   styleUrls: ['./formulario-novo-servico.component.css']
 })
 export class FormularioNovoServicoComponent {
- dadosC = new DadosC()
- novosDados = {
-   novaData: '',
-   novoValor:'',
-   novoServico: '',
-   novaDescricao: '',
- }
+ dadosC: any;
+ novoServico: any[] = []
+
+ formBuilder = inject(FormBuilder)
+ servico = this.formBuilder.group({
+  bike:[''],
+  data: [''],
+  nome: [''],
+  valor: [''],
+  maisInfo: ['']
+})
+
 
   constructor(private cadastroComponent: CadastroComponent, private cadastroService:CadastroService){
     this.dadosC = this.cadastroComponent.clientesEditveis[0]
-    this.novosDados.novaData = this.dadosC._ultServico[this.dadosC.index]._data
-    this.novosDados.novoValor = this.dadosC._ultServico[this.dadosC.index]._valor
-    this.novosDados.novoServico = this.dadosC._ultServico[this.dadosC.index]._servico
-    this.novosDados.novaDescricao = this.dadosC._ultServico[this.dadosC.index]._maisInfo
+        console.log(this.dadosC)
+
   }
 
   enviarDados(){ 
+    
+    this.novoServico.push(this.servico.value)
+    this.dadosC.servico = this.novoServico
+    this.cadastroService.updade(this.dadosC, this.dadosC.id).subscribe({
+      next: cliente =>{
+        console.log(cliente)
+            this.cadastroComponent.ngOnInit()
+            this.cadastroComponent.fecharForm()
+      },
+      error(err) {
+        console.log(err)
+      },
+    })
 
-    this.cadastroService.receberDadosNovosServicos(this.dadosC, this.dadosC._id, this.novosDados)
-    this.cadastroService.obterDadosStorage()
-     this.cadastroComponent.ngOnInit()
-    this.cadastroComponent.fecharForm()
   }
   
   fecharForm(){

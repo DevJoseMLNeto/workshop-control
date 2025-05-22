@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
-import { DadosC } from '../model/dadosCliente';
+import { inject, Injectable } from '@angular/core';
+import { Clientes } from '../model/cliente';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,78 +9,40 @@ import { DadosC } from '../model/dadosCliente';
 
 
 export class CadastroService{
-  dadosC = new DadosC()
-  clientesCadastrados : any[] = []
+  dadosC! : Clientes;
+  clientesCadastrados : Clientes[] = []
   clientesEditaveis?: string;
+  API = "http://localhost:8080/api/v1/clientes"
+  http = inject(HttpClient)
 
   constructor(){
+
   }
+
+  findAll(): Observable<Clientes[]> {
+    return this.http.get<Clientes[]>(this.API+"/get");
+  }
+
+  save(cliente: Clientes): Observable<string> {
+    return this.http.post<string>(this.API+"/save", cliente);
+  }
+
+  updade(cliente: Clientes, id: number): Observable<string> {
+    return this.http.put<string>(this.API+"/update/"+id,cliente)
+  }
+
+  delete(id: number): Observable<string>{
+    return this.http.delete<string>(this.API+"/delete/"+id, {responseType:'json'})
+  }
+  
+  findBynome(nome: String) : Observable<Clientes[]>{
+    return this.http.get<Clientes[]>(this.API+"/findByNome?nome="+nome)
+  }
+
+
+
 
   
-  receberDados(dados: DadosC){
-    this.dadosC = dados
-    this.dadosC.setId()
-    this.enviarDados(this.dadosC, this.dadosC.Id)
-
-  }
-
-  receberDadosEditaveis(dados: DadosC, id: string){
-    this.enviarDados(dados, id)
-  }
-
-  receberDadosNovosServicos(dados:DadosC, id: string, novoDados: any){
-  
-    this.dadosC = dados
-
-    this.dadosC._ultServico.push({
-      _data:  novoDados.novaData,
-      _servico:   novoDados.novoServico,
-      _valor:  novoDados.novoValor,
-      _maisInfo:  novoDados.novaDescricao,
-      _index: false
-    })
-
-    this.dadosC.index =  this.dadosC._ultServico.length -1
-
-    
-
-    console.log(this.dadosC)
-    this.enviarDados(this.dadosC, id)
-  }
-
-  enviarDados(dados: DadosC, id: string){
-    let dadosConvertidos = JSON.stringify(dados)
-    window.localStorage.setItem(id, dadosConvertidos)
-  
-  }
-
-
-  removerDado(id: string){
-    localStorage.removeItem(id)
-     this.obterDadosStorage()
-
-  }
-
-  obterDadosStorage(){ 
-    this.clientesCadastrados = []
-      for(let c = 0; c <  localStorage.length; c++){
-        let clienteId: string = localStorage.key(c) || ""
-        if(clienteId.charAt(0) == "C"){
-          let clienteConvertido = JSON.parse(localStorage.getItem(clienteId) || "")
-          this.clientesCadastrados.push(clienteConvertido)
-        }else{}
-      }
-   
-  }
-
  
-
-  obterDadosStorageEditavel(id: string){
-    let clienteConvertido = JSON.parse(localStorage.getItem(id) || "")
-    this.clientesEditaveis = clienteConvertido
-    return this.clientesEditaveis
-  }
-
-
 }
 

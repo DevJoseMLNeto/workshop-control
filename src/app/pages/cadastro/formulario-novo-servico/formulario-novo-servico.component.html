@@ -1,21 +1,25 @@
-<form  (ngSubmit)="enviarDados()" class="box_addclient ">
+<form  (ngSubmit)="enviarDados()" class="box_addclient " [formGroup]="servico">
     
     <div class="content">
+        <label for="dataI">Bike:</label>
+        <input  formControlName="bike"  type="text" name="dataI" id="dataI" required> 
+    </div>
+    <div class="content">
         <label for="dataI">Data:</label>
-        <input  [(ngModel)]="novosDados.novaData"  type="date" name="dataI" id="dataI" required> 
+        <input  formControlName="data"  type="date" name="dataI" id="dataI" required> 
     </div>
 
     <div class="content">
         <label for="retornoI">Servico:</label>
-        <input  [(ngModel)]="novosDados.novoServico" name="retornoI" id="retornoI" type="text" required>
+        <input formControlName="nome"  name="retornoI" id="retornoI" type="text" required>
     </div>
     <div class="content">
         <label for="valorI">Valor:</label>
-        <input  [(ngModel)]="novosDados.novoValor" name="valorI"id="valorI" type="number" required>
+        <input  formControlName="valor" name="valorI"id="valorI" type="number" required>
     </div>
     <div class="content">
         <label for="moreInfoI">Mais informações:</label>
-        <input  [(ngModel)]="novosDados.novaDescricao" name="moreInfoI" id="moreInfoI" type="text" required>
+        <input  formControlName="maisInfo" name="moreInfoI" id="moreInfoI" type="text" required>
     </div>
     <div class="btns">
         <button type="submit" class="ok">Adicionar</button>

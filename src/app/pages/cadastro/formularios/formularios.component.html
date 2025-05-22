@@ -1,44 +1,50 @@
-<form  (ngSubmit)="enviarDados()" class="box_addclient ">
-    <h1 style="text-align: center;"></h1>
-    <div class="content">
-        <label for="nomeI">Nome:</label>
-        <input [(ngModel)]="dadosC._nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano" required>
-    </div>
+<form [formGroup]="formAddclient" (ngSubmit)="enviarDados()" class="box_addclient">
+  <h4 style="text-align: center;">Cliente</h4>
 
-    <div class="content">
-        <label for="telefoneI">Contato:</label>
-        <input  [(ngModel)]="dadosC._contato" type="tel" name="telefoneI" id="telefoneI" required>
-    </div>
+  <div class="content">
+    <label for="nomeI">Nome:</label>
+    <input formControlName="nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano">
+  </div>
 
-    <div class="content">
-        <label for="whatsappI">Endereço:</label>
-        <input  [(ngModel)]="dadosC._endereco" type="text" name="whatsappI"id="whatsappI"  placeholder="Ex: 12 912345678" required>    
-    </div>
-    
-    <div class="content">
+  <div class="content">
+    <label for="telefoneI">Contato:</label>
+    <input formControlName="contato" type="tel" name="telefoneI" id="telefoneI">
+  </div>
+
+  <div class="content">
+    <label for="whatsappI">Endereço:</label>
+    <input formControlName="endereco" type="text" name="whatsappI" id="whatsappI" placeholder="Ex: 12 912345678">
+  </div>
+
+  <h6 style="text-align: center;">Serviço</h6>
+
+  <div formArrayName="servico">
+    <div *ngFor="let servicoGroup of servicoForms; let i = index" [formGroupName]="i">
+      <div class="content">
         <label for="bikeI">Bike:</label>
-        <input  [(ngModel)]="dadosC._bike" type="text" name="bikeI" id="bikeI" required>
-    </div>
-    
-    <div class="content">
+        <input formControlName="bike" type="text" name="bikeI" id="bikeI">
+      </div>
+      <div class="content">
         <label for="dataI">Data:</label>
-        <input  [(ngModel)]="dadosC._ultServico[0]._data"  type="date" name="dataI" id="dataI" required> 
-    </div>
-
-    <div class="content">
-        <label for="retornoI">Servico:</label>
-        <input  [(ngModel)]="dadosC._ultServico[0]._servico" name="retornoI" id="retornoI" type="text" required>
-    </div>
-    <div class="content">
+        <input formControlName="data" type="date" name="dataI" id="dataI">
+      </div>
+      <div class="content">
+        <label for="retornoI">Serviço:</label>
+        <input formControlName="nome" name="retornoI" id="retornoI" type="text">
+      </div>
+      <div class="content">
         <label for="valorI">Valor:</label>
-        <input  [(ngModel)]="dadosC._ultServico[0]._valor" name="valorI"id="valorI" type="number" required>
-    </div>
-    <div class="content">
+        <input formControlName="valor" name="valorI" id="valorI" type="number">
+      </div>
+      <div class="content">
         <label for="moreInfoI">Mais informações:</label>
-        <input  [(ngModel)]="dadosC._ultServico[0]._maisInfo" name="moreInfoI" id="moreInfoI" type="text" required>
+        <input formControlName="maisInfo" name="moreInfoI" id="moreInfoI" type="text">
+      </div>
     </div>
-    <div class="btns">
-        <button type="submit" class="ok">Adicionar</button>
-        <button  (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
-    </div>
+  </div>
+
+  <div class="btns">
+    <button type="submit" class="ok" [disabled]="formAddclient.invalid">Adicionar</button>
+    <button (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+  </div>
 </form>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DadosC } from 'src/app/model/dadosCliente';
+import { Clientes } from 'src/app/model/cliente';
 import { CadastroService } from 'src/app/service/cadastro.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class CadastroComponent implements OnInit{
   indexMenssages: boolean = false
   indexFormsService: boolean = false
   classeFicha:string = ""
-  clientesCadastrados: DadosC[] = [];
+  clientesCadastrados!: Clientes[];
   clientesEditveis: any[] = []
   habBTNEdit: boolean = true
   copiaClientesCadastrados: any[] = []
@@ -26,65 +26,45 @@ export class CadastroComponent implements OnInit{
  
 
 constructor(private router: Router, private cadastroService: CadastroService){
-  
+
 }
 
 ngOnInit(){
-  this.cadastroService.obterDadosStorage()
-  this.clientesCadastrados = this.cadastroService.clientesCadastrados 
-
-  this.clientesCadastrados.map((e)=>{
-
-    e._ultServico.forEach((v, i, a)=>{
-
-      if(i == a.length -1){
-
-        v._index = true
-      }
-    })
-  })
-}
-
-moverHistorico(i:number){
-
-  let arr = this.clientesCadastrados[i]._ultServico.pop()
-  this.clientesCadastrados[i]._ultServico.unshift(arr)
-  this.clientesCadastrados[i]._ultServico.forEach((v, i, a)=>{
-    v._index = false
-    if(i == a.length -1){
-      v._index = true
-    }
-  })
-    
-}
-
-setClienteCadastrado(cliente: any){
-  this.clientesCadastrados = cliente
-}
-
-buscaClientes(busca: string){
-  this.cadastroService.obterDadosStorage()
-  let encontrado = this.cadastroService.clientesCadastrados.filter((evt)=>{
-    if(evt._nome.startsWith(busca)){
-      return evt
+  this.cadastroService.findAll().subscribe({
+    next: clientes => {
+      this.clientesCadastrados = clientes
+      this.clientesCadastrados.map(e=>{
+        e.servico[e.servico.length - 1].isVisible = true
+      })
+    },
+    error: error => {
+      console.error(error);
     }
   })
 
-  this.clientesCadastrados = []
-  for(let c = 0; c < encontrado.length; c++){
-    this.clientesCadastrados.push(encontrado[c])
-  }
-  
 }
 
-habilitarEdit(cliente: string){
+findByNome(nome: any){
+  this.cadastroService.findBynome(nome.target.value).subscribe({
+    next: clientes =>{
+            this.clientesCadastrados = clientes
+            this.clientesCadastrados.map(e=>{
+            e.servico[e.servico.length - 1].isVisible = true
+      })
+    }
+  })
+
+}
+
+
+habilitarEdit(i: number){
   this.habBTNEdit = false
 
   if( this.clientesEditveis.length > 0){
     this.clientesEditveis.pop()
   }
 
-  this.clientesEditveis.push(this.cadastroService.obterDadosStorageEditavel(cliente))
+  this.clientesEditveis.push(this.clientesCadastrados[i])
 }
 abrirForm(){
   this.indexForms = true
@@ -126,12 +106,17 @@ removerCadastro(){
   
 }
 
-messageConfirm(){
-  let id = this.clientesEditveis[0]._id
-  this.cadastroService.removerDado(id)
-  this.setClienteCadastrado(this.cadastroService.clientesCadastrados)
-
+moverHistorico(i: number){
+  let arr = this.clientesCadastrados[i].servico
+  let p = arr.pop()
   
+  if (p!=undefined){
+    p.isVisible = false
+    arr.unshift(p)
+  }
+
+  arr[arr.length - 1].isVisible = true
+
 }
 
 

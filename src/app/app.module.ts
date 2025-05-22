@@ -9,7 +9,7 @@ import { InsumosModule } from './pages/insumos/insumos.module';
 import { ContabioModule } from './pages/contabio/contabio.module';
 import { CadastroService } from './service/cadastro.service';
 import { SharedModule } from "./pages/shared/shared.module";
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
 
   declarations: [
@@ -24,7 +24,8 @@ import { SharedModule } from "./pages/shared/shared.module";
     InsumosModule,
     ContabioModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
 ],
   providers: [CadastroService],
   bootstrap: [AppComponent]

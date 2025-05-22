@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { InsumosComponent } from '../insumos.component';
 import { OnInit } from '@angular/core';
-import { DadosInsumo } from 'src/app/model/dadosInsumo';
+import { Insumos } from 'src/app/model/insumo';
 import { InsumosService } from 'src/app/service/insumos.service';
 @Component({
   selector: 'app-formulario-insumos',
@@ -9,7 +9,7 @@ import { InsumosService } from 'src/app/service/insumos.service';
   styleUrls: ['./formulario-insumos.component.css']
 })
 export class FormularioInsumosComponent implements OnInit{
-  dadosInsumo: DadosInsumo = new DadosInsumo()
+
   constructor(private insumosComponent: InsumosComponent, private insumosService: InsumosService){
 
   }
@@ -22,8 +22,7 @@ export class FormularioInsumosComponent implements OnInit{
   }
 
   enviarDados(){
-    this.insumosService.receberDados(this.dadosInsumo)
-    this.insumosComponent.fecharForms()
+
   }
 
   

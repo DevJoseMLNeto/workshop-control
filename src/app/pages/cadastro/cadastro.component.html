@@ -14,7 +14,7 @@
 <main>
 <div class="principal" *ngIf="indexMain">
     <div class="busca">
-        <input type="text" name="busca_i" id="busca_i" placeholder="Busque seu cliente" (input)="buscaClientes($any($event.target).value)">
+        <input type="text" name="busca_i" id="busca_i" placeholder="Busque seu cliente" (input)="findByNome($event)" >
     </div>
     <div class="conteudo_main">
     <menu>
@@ -27,36 +27,34 @@
 
     <div class="clientes">
         <ng-container *ngFor="let c of clientesCadastrados ; let i = index">
-            <div class="ficha" [ngClass]="c._id">
-                <input type="radio" name="cliente" (input)="habilitarEdit(c._id)" style="margin: 3px 3px;">
+            <div class="ficha">
+                <input type="radio" name="cliente" (input)="habilitarEdit(i)" style="margin: 3px 3px;">
                 
                 <article class="visivel">
                 <div class="info_contact info">
-                    <p> <strong>Nome:</strong> {{c._nome}}</p>
-                    <p><strong>Contato:</strong> {{c._contato}}</p>
-                    <p><strong>Endereço:</strong> {{c._endereco}}</p>
+                    <p> <strong>Nome:</strong> {{c.nome}}</p>
+                    <p><strong>Contato:</strong> {{c.contato}}</p>
+                    <p><strong>Endereço:</strong> {{c.endereco}}</p>
                 </div>
                 <div class="info_bike info">
-                    <p><strong>Bike:</strong> {{c._bike}}</p>
                     <p (click)="abrirFicha('fichaAberta', $any($event.target).parentElement.parentElement.parentElement)" style="color: rgb(11, 11, 178); cursor: pointer;">Serviços</p>
                 </div>
                 </article>
-                <ng-container *ngFor="let arrayServicos of c._ultServico" >
-                    <ng-template [ngIf]="arrayServicos._index">
-                <article class="escondido">
+                <ng-container *ngFor="let arrayServicos of c.servico; let in = index" >
+                    <ng-template [ngIf]="arrayServicos.isVisible">
+                        <article class="escondido">
                             <div class="descricao">
-
-                        <p class="data"><strong>{{arrayServicos._data}}</strong></p>
-                        <p><strong>Serviço:</strong> {{arrayServicos._servico}}</p>
-                        <p><strong>Valor:</strong> {{arrayServicos._valor}}</p>
-                        <p><strong>Descrição do serviço:</strong> {{arrayServicos._maisInfo}}</p>                
-                            </div>  
-                            
+                                <p class="data"><strong>{{arrayServicos.data}}</strong></p>
+                                <p><strong>Bike:</strong> {{arrayServicos.bike}}</p>
+                                <p><strong>Serviço:</strong> {{arrayServicos.nome}}</p>
+                                <p><strong>Valor:</strong> {{arrayServicos.valor}}</p>
+                                <p><strong>Descrição do serviço:</strong> {{arrayServicos.maisInfo}}</p>                
+                            </div>       
                         </article>
-                    </ng-template>
+                    </ng-template>        
                 </ng-container>
                 <div class="btn">
-                    <button (click)="moverHistorico(i)" class="anterior btns material-symbols-outlined" style>arrow_forward_ios</button>
+                    <button  class="anterior btns material-symbols-outlined" (click)="moverHistorico(i)">arrow_forward_ios</button>
                 </div>
             </div>
             </ng-container>

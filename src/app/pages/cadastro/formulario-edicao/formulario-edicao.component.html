@@ -1,22 +1,17 @@
-<form  (ngSubmit)="enviarDados()" class="box_addclient ">
+<form  (ngSubmit)="enviarDados()" class="box_addclient " [formGroup]="formAddclient">
     <div class="content">
         <label for="nomeI">Nome:</label>
-        <input [(ngModel)]="dadosC._nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano" required>
+        <input formControlName="nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano">
     </div>
 
     <div class="content">
         <label for="telefoneI">Contato:</label>
-        <input  [(ngModel)]="dadosC._contato" type="tel" name="telefoneI" id="telefoneI" required>
+        <input  formControlName="contato" type="tel" name="telefoneI" id="telefoneI">
     </div>
 
     <div class="content">
         <label for="whatsappI">Endereço:</label>
-        <input  [(ngModel)]="dadosC._endereco" type="text" name="whatsappI"id="whatsappI"  placeholder="Ex: 12 912345678" required>    
-    </div>
-    
-    <div class="content">
-        <label for="bikeI">Bike:</label>
-        <input  [(ngModel)]="dadosC._bike" type="" name="bikeI" id="bikeI" required>
+        <input  formControlName="endereco" type="text" name="whatsappI"id="whatsappI"  placeholder="Ex: 12912345678">    
     </div>
     
   

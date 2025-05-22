@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CadastroComponent } from '../cadastro.component';
+import { CadastroService } from 'src/app/service/cadastro.service';
 
 @Component({
   selector: 'app-menssages',
@@ -9,9 +10,9 @@ import { CadastroComponent } from '../cadastro.component';
 export class MenssagesComponent {
 
   clienteRemover: any;
-  constructor(private cadastroComponent: CadastroComponent){
+  constructor(private cadastroComponent: CadastroComponent, private cadastroService: CadastroService){
     this.clienteRemover = this.cadastroComponent.clientesEditveis[0]
-    console.log(this.clienteRemover)
+  
   }
 
   cancelarOperation(){
@@ -23,11 +24,17 @@ export class MenssagesComponent {
   }
 
   confirmarOperation(){
-    this.cadastroComponent.messageConfirm()
-    this.cadastroComponent.indexMenssages = false
-    this.cadastroComponent.indexMain = true
-    if(this.cadastroComponent.indexMain){
-      this.cadastroComponent.habBTNEdit = true
-    }
+    this.cadastroService.delete( this.clienteRemover.id).subscribe({
+      next: cliente => {
+       this.cadastroComponent.ngOnInit()
+       this.cancelarOperation()
+      },
+      error : err => {
+        this.cadastroComponent.ngOnInit()
+       this.cancelarOperation()
+      }
+    })
+
+
   }
 }
