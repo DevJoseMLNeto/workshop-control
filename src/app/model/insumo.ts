@@ -7,3 +7,7 @@ export class Insumos {
     id!: number;
     disponibilidade!: boolean;
 }
+
+export interface ProdutoMenssagem {
+  menssagem: string;
+}

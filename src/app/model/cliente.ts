@@ -11,3 +11,7 @@ export class Clientes {
 
 }
 
+export interface ClienteMenssagem {
+	menssagem: string;
+}
+

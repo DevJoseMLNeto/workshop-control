@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InsumosComponent } from './insumos.component';
 import { FormularioInsumosComponent } from './formulario-insumos/formulario-insumos.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioEditComponent } from './formulario-edit/formulario-edit.component';
 
 @NgModule({
   declarations: [
     InsumosComponent,
-    FormularioInsumosComponent
+    FormularioInsumosComponent,
+    FormularioEditComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   exports:[
     InsumosComponent,

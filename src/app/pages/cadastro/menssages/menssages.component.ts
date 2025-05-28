@@ -30,8 +30,7 @@ export class MenssagesComponent {
        this.cancelarOperation()
       },
       error : err => {
-        this.cadastroComponent.ngOnInit()
-       this.cancelarOperation()
+        console.log(err)
       }
     })
 
