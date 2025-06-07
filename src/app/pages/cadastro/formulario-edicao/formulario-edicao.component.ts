@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CadastroComponent } from '../cadastro.component';
 import { CadastroService } from 'src/app/service/cadastro.service';
 import { Clientes } from 'src/app/model/cliente';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-edicao',
@@ -17,9 +17,9 @@ export class FormularioEdicaoComponent {
     clienteEdit: any
     formBuilder = inject(FormBuilder)
     formAddclient = this.formBuilder.group({
-      nome: ['',],
-      contato: ['',],
-      endereco: ['',]
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      contato: ['',[Validators.required,Validators.pattern(/^\d{10,11}$/)]],
+      endereco: ['', [Validators.required, Validators.minLength(5)]],
     })
 
   constructor(private cadastroComponent: CadastroComponent, private cadastroService:CadastroService){

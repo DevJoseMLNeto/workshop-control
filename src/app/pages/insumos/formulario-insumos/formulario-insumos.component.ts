@@ -15,9 +15,9 @@ export class FormularioInsumosComponent implements OnInit{
   insumo!: any;
   fb = inject(FormBuilder)
   formInsumos = this.fb.group({
-    nome: ['', Validators.required],
-	  marca: ['', Validators.required],
-	  descricao: ['', Validators.required],
+    nome: ['', [Validators.required, Validators.minLength(3)]],
+	  marca: ['', [Validators.required, Validators.minLength(3)]],
+	  descricao: ['', [Validators.required, Validators.minLength(5)]],
 	  peso: ['', Validators.required],
     valor: [null, Validators.required],
     disponibilidade: [true]

@@ -17,15 +17,15 @@ export class FormulariosComponent {
   clienteCadastrado!: any;
   formBuilder = inject(FormBuilder)
   formAddclient = this.formBuilder.group({
-  nome: ['', Validators.required],
-  contato: ['', Validators.required],
-  endereco: ['', Validators.required],
+  nome: ['', [Validators.required, Validators.minLength(3)]],
+  contato: ['',[Validators.required,Validators.pattern(/^\d{10,11}$/)]],
+  endereco: ['', [Validators.required, Validators.minLength(5)]],
   servico: this.formBuilder.array([
     this.formBuilder.group({
-      nome: ['', Validators.required],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
       data: ['', Validators.required],
-      bike: ['', Validators.required],
-      valor: [null, Validators.required],
+      bike: ['', [Validators.required, Validators.minLength(3)]],
+      valor: [null, [Validators.required, Validators.min(1)]],
       maisInfo: ['']
     })
   ])

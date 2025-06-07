@@ -1,1 +1,65 @@
-<app-graficos></app-graficos>
+
+<main>
+
+<div class="hist_ent">
+    <h5>Historico de entradas</h5>
+    <div class="data_ent">
+        <input type="month" name="" id="">
+    </div>
+    <div class="view_ent">
+        <div class="att">
+            <p>Serviço: <br> Data: <br> Valor:</p>
+            
+        </div>
+       
+    </div>
+
+</div>
+<div class="calc_geral">
+    <div class="center calc_graf">
+        <div style="width: 40%;">
+            <div style="width: 100%; text-align: center;"> Mensal</div>
+        <div class="valores entrada">Entrada: R$2100</div>
+        <div class="valores saida">Saida: R$210</div>
+        <div class="valores total">Total: R$1890</div>
+            <div style="width: 100%; text-align: center;">Geral</div>
+        <div class="valores geral">Caixa: R$5000</div>
+        </div>
+        <app-graficos class="grafico"></app-graficos>
+    </div>
+    <div class="center definir_saida" >
+        <h1 style="font-size: 15px; text-align: center; width: 100%; height: 20px;">Registrar saidas</h1>
+        <div class="form_saida">
+            <div class="">
+                <label for="iValor">Valor:</label>
+            <input type="number" name="iValor" id="iValor">
+            </div>
+            <div class="">
+                <label for="iMes">Dia:</label>
+            <input type="number" name="iMes" id="iMes">
+            </div>
+            <div class="">
+                <label for="iCausa">Causa:</label>
+            <input type="text" name="iCausa" id="iCausa">
+            </div>
+            <div style="width: 100%; display: flex; justify-content: center;">
+            <button style="margin: 0px auto; background-color:blue ; border-radius: 4px; color: #fff; font-size: 14px; width: 150px; cursor: pointer;">Resgistrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hist_saida">
+    <h5 >Historico de Saida</h5>
+    <div class="data_ent">
+        <input type="month" name="" id="">
+    </div>
+    <div class="view_ent">
+        <div class="att">
+            <p>Causa: <br> Data: <br> Valor:</p>
+            
+        </div>
+       
+    </div>
+</div>
+
+</main>

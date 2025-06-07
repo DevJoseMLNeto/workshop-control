@@ -25,9 +25,9 @@ export class FormularioEditComponent {
     this.insumoEditavel = this.insumosComponent.insumoEditavel
 
      this.formInsumos = this.fb.group({
-    nome: [this.insumoEditavel.nome, Validators.required],
-    marca: [this.insumoEditavel.marca, Validators.required],
-    descricao: [this.insumoEditavel.descricao, Validators.required],
+    nome: [this.insumoEditavel.nome, [Validators.required, Validators.minLength(3)]],
+    marca: [this.insumoEditavel.marca,[Validators.required, Validators.minLength(3)]],
+    descricao: [this.insumoEditavel.descricao, [Validators.required, Validators.minLength(5)]],
     peso: [this.insumoEditavel.peso, Validators.required],
     valor: [this.insumoEditavel.valor, Validators.required],
     disponibilidade: [this.insumoEditavel.disponibilidade]

@@ -1,0 +1,171 @@
+
+
+main{
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+}
+
+
+h5{
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+.hist_ent{
+ 
+ height: 100%;
+ width: 20vw;   
+}
+
+
+.calc_geral{
+    height: 100%;
+    width: 60vw; 
+
+}
+
+.hist_saida{
+
+ height: 100%;
+ width: 20vw;  
+}
+
+.data_ent{
+    width: 65%;
+    height: 60px;
+    margin: 20px auto;
+}
+
+       /* --- Estilos do Input de Mês e Ano --- */
+        .input-wrapper {
+            margin-bottom: 30px;
+        }
+
+        input[type="month"] {
+            width: 100%; /* Ocupa a largura total do container */
+
+            padding: 14px 20px;
+            border: 2px solid #ced4da; /* Borda cinza suave */
+            border-radius: 10px;
+            font-size: 0.9em;
+            color: #333;
+            background-color: #fdfdfd;
+            outline: none;
+            transition: all 0.3s ease-in-out; /* Transição para todos os efeitos */
+            box-sizing: border-box; /* Garante que padding e borda não aumentem a largura total */
+        }
+
+        input[type="month"]:hover {
+            border-color: #90a4ae; /* Borda levemente mais escura no hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave no hover */
+        }
+
+        input[type="month"]:focus {
+            border-color: #28a745; /* Borda verde vibrante no foco */
+            box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.25); /* Sombra de foco com transparência */
+            background-color: #ffffff;
+        }
+  
+
+.view_ent{
+    height: 75%;
+    width: 85%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.att{
+    height: 8vh;
+    font-size: 12px;
+    border-bottom: 1px dashed black;
+}
+
+.calc_geral{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+.center{
+    width: 95%;
+    height: 45%;
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.valores{
+    height: 20px;
+    width: 40%;
+    margin: 10px 5px;
+    font-size: 13px;
+}
+.valores > input {
+    height: 20px;
+    width: 20px;
+}
+
+.grafico{
+    width: 60%;
+}
+
+.geral{
+    border-top: 1px dashed black;
+    margin-top: 50px;
+}
+
+.definir_saida{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_saida{
+    height: 28%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+label{
+    margin: 0px;
+    font-size: 14px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]{
+    border: 1px solid #333;
+    border-radius: 2px;
+    outline: none;
+    height: 15px;
+    width: 200px;
+    display: grid;
+    font-size: 13px;
+     -moz-appearance: textfield;
+  padding: 1px;
+  -ms-appearance: none;
+  appearance: none;
+}
+
+input[type="text"]{
+    border: 1px solid #333;
+    border-radius: 2px;
+    outline: none;
+    height: 15px;
+    width: 200px;
+    display: grid;
+    font-size: 13px;
+    padding: 1px;
+}

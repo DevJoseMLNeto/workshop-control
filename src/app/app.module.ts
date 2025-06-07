@@ -10,6 +10,8 @@ import { ContabioModule } from './pages/contabio/contabio.module';
 import { CadastroService } from './service/cadastro.service';
 import { SharedModule } from "./pages/shared/shared.module";
 import { HttpClientModule } from '@angular/common/http';
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
 
   declarations: [
@@ -25,9 +27,11 @@ import { HttpClientModule } from '@angular/common/http';
     ContabioModule,
     ReactiveFormsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
 ],
-  providers: [CadastroService],
+  providers: [CadastroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

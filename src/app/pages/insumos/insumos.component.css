@@ -139,3 +139,13 @@ h5{
 .cancelCard{
     background-color: red !important;
 }
+
+@media only screen and (max-width: 720px)  {
+    .card{
+        height: 20%;
+    }
+
+    .card-body{
+        height: 20%;
+    }
+}

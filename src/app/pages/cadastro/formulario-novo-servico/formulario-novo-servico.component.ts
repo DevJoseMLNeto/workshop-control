@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Clientes } from 'src/app/model/cliente';
 import { CadastroComponent } from '../cadastro.component';
 import { CadastroService } from 'src/app/service/cadastro.service';
-import { FormBuilder} from '@angular/forms';
+import { FormBuilder, Validators} from '@angular/forms';
 import { Servico } from 'src/app/model/servico';
 
 @Component({
@@ -16,11 +16,11 @@ export class FormularioNovoServicoComponent {
 
  formBuilder = inject(FormBuilder)
  servico = this.formBuilder.group({
-  bike:[''],
-  data: [''],
-  nome: [''],
-  valor: [''],
-  maisInfo: ['']
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      data: ['', Validators.required],
+      bike: ['', [Validators.required, Validators.minLength(3)]],
+      valor: [null, [Validators.required, Validators.min(1)]],
+      maisInfo: ['']
 })
 
 
