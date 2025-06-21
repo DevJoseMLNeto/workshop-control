@@ -33,6 +33,7 @@ export class FormularioEdicaoComponent {
 
     if(this.formAddclient.valid){
       this.clienteEdit = this.formAddclient.value
+      console.log(this.clienteEdit)
       this.cadastroService.updade(this.clienteEdit, this.clienteRecebido.id ).subscribe({
         next: cliente=>{
              this.cadastroComponent.ngOnInit()

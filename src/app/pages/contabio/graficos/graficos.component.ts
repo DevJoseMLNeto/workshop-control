@@ -9,9 +9,8 @@ import ChartDataLabels from 'chartjs-plugin-datalabels'
   styleUrls: ['./graficos.component.css']
 })
 export class GraficosComponent implements OnInit {
-entrada = 2100
-saida = 210
-total = this.entrada - this.saida
+
+
 
 constructor(private contabioComponent: ContabioComponent){
 
@@ -20,23 +19,23 @@ constructor(private contabioComponent: ContabioComponent){
 
 ngOnInit(){
 Chart.register(ChartDataLabels)
-this.grafico()
+
 
 }
 
 
 
 
-grafico(){
+atualizarGrafico(){
   let graf = document.getElementById("grafico")
 
   new Chart(graf as ChartItem, {
       type: 'pie',
     data: {
-      labels: ['Saida', 'Total'],
+      labels: ['Saida', 'Entrada'],
       datasets: [{
         label: '',
-        data: [this.saida, this.total],
+        data: [this.contabioComponent.caixaAtual.saida, this.contabioComponent.caixaAtual.entrada],
         borderWidth: 1,
         backgroundColor: ['#FFF700','#14FF30' ]
       }]
@@ -46,7 +45,7 @@ grafico(){
         title: {
           display: true,
           position: 'top',
-          text: "Entrada: R$ " + this.entrada
+          text: "Total mensal"
         }
       },
       events: []
