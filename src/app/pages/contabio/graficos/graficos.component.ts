@@ -32,12 +32,12 @@ atualizarGrafico(){
   new Chart(graf as ChartItem, {
       type: 'pie',
     data: {
-      labels: ['Saida', 'Entrada'],
+      labels: ['Entrada','Saida'],
       datasets: [{
         label: '',
-        data: [this.contabioComponent.caixaAtual.saida, this.contabioComponent.caixaAtual.entrada],
+        data: [this.contabioComponent.caixaAtual.entrada,this.contabioComponent.caixaAtual.saida],
         borderWidth: 1,
-        backgroundColor: ['#FFF700','#14FF30' ]
+        backgroundColor: ['#14FF30','#FFF700' ]
       }]
     },
     options: {

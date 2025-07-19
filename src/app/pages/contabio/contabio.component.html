@@ -1,11 +1,9 @@
 
 <main>
-
+<button class="home" (click)="navegar('')">HOME</button>
 <div class="hist_ent">
     <h5>Historico de entradas</h5>
-    <div class="data_ent">
-        <input type="month" name="" id="">
-    </div>
+   
     <div class="view_ent">
         <ng-container *ngFor="let e of entrada">
         <div class="att">
@@ -18,7 +16,7 @@
 <div class="calc_geral">
     <div class="center calc_graf">
         <div style="width: 50%; padding: 10px;">
-            <div style="width: 100%; text-align: center;">Caixa atual: {{this.caixaAtual.data}}</div>
+            <div class="caixa_atual">Caixa atual: {{caixaAtual.data}}</div>
         <div class="valores entrada">Entrada: R${{caixaAtual.entrada}}</div>
         <div class="valores saida">Saida: R${{caixaAtual.saida}}</div>
         <div class="valores total">Total: R${{caixaAtual.total}}</div>
@@ -32,10 +30,8 @@
 </div>
 <div class="hist_saida">
     <h5 >Historico de Saida</h5>
-    <div class="data_ent">
-        <input type="month" name="" id="">
-    </div>
-    <div class="view_ent" style="position: relative;">
+    
+    <div class="view_ent">
         <div class="att">
            <ng-container *ngFor="let s of saida">
         <div class="att">
@@ -43,9 +39,9 @@
         </div>
         </ng-container>
         </div>
-       
-        <button style="position: absolute; height: 40px; width: 90%; bottom: 10px; border: 1px solid black; border-radius: 8px; cursor: pointer;" (click)="navegar('saida')">Registrar saida</button>
+        
     </div>
+    <button class="btn_saida" (click)="navegar('saida')">Registrar saida</button>
 </div>
 
 </main>
