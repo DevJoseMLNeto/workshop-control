@@ -142,10 +142,19 @@ h5{
 
 @media only screen and (max-width: 720px)  {
     .card{
+        height: 28%;
+        font-size: 7px;
+        width: 36%;
+    }
+    h5{
+        font-size: 9px;
+    }
+    .card-body{
         height: 20%;
     }
 
-    .card-body{
-        height: 20%;
+    .eliminate{
+        width: 15px;
+    height: 14px;
     }
 }

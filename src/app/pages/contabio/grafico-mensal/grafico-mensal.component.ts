@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, ChartItem } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels'
+import { ContabioComponent } from '../contabio.component';
 
 @Component({
   selector: 'app-grafico-mensal',
@@ -9,43 +10,43 @@ import ChartDataLabels from 'chartjs-plugin-datalabels'
 })
 export class GraficoMensalComponent implements OnInit {
 
-constructor(){
+constructor(private contabioComponent : ContabioComponent){
 }
 
 ngOnInit(): void {
   Chart.register(ChartDataLabels)
-  this.atualizarGrafico()
 }
 
 
 atualizarGrafico(){
   let graf = document.getElementById("graficoMensal")
 
-  let grafo = new Chart(graf as ChartItem, {
+  new Chart(graf as ChartItem, {
     type: 'bar',
     data: {
       labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
       datasets: [{
-          barPercentage: 0.5,
-        barThickness: 6,
+        label: '',
+        barPercentage: 0.8,
+        barThickness: 12,
         maxBarThickness: 8,
         minBarLength: 2,
-        data: [10, 20, 30, 40, 50, 60, 70]
-      }]
+        data: [this.contabioComponent.meses.janeiro, this.contabioComponent.meses.fevereiro, this.contabioComponent.meses.marco, this.contabioComponent.meses.abril, this.contabioComponent.meses.maio, this.contabioComponent.meses.junho, this.contabioComponent.meses.julho, this.contabioComponent.meses.agosto, this.contabioComponent.meses.setembro, this.contabioComponent.meses.outubro, this.contabioComponent.meses.novembro, this.contabioComponent.meses.dezembro],
+        backgroundColor: ['#00ffff'],
+        
+      }],
+      
     },
     options: {
       plugins:{
         title: {
           display: true,
           position: 'top',
-          text: "Lucro em cada mês do ano"
+          text: this.contabioComponent.dataAtual.slice(3)
         }
       },
       events: []
     }
-  })
-  grafo.data.datasets.map((el)=> {
-    el.data
   })
 }
 

@@ -32,7 +32,7 @@ export class FormularioComponent implements OnInit {
     this.saida = this.formSendSaida.value
     this.contabioService.save(this.saida).subscribe({
       next : send => {
-        console.log(send)
+        this.router.navigate(['/contabio'])
       },
       error: err => {
 
